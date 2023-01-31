@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('project_technology', function (Blueprint $table) {
+        Schema::create('projects_technology', function (Blueprint $table) {
             // $table->id();
             // è la colonna foreign key per i progetti
-            $table->unsignedBigInteger('project_id');
+            $table->unsignedBigInteger('projects_id');
             // è la foreign key di questa colonna
-            $table->foreign('project_id')
+            $table->foreign('projects_id')
                 ->references('id')
                 ->on('projects')
                 ->onDelete('cascade');
@@ -42,6 +42,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project_technology');
+        Schema::dropIfExists('projects_technology');
     }
 };

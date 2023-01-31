@@ -16,6 +16,10 @@ class Projects extends Model
         return $this->belongsTo(Typology::class);
     }
 
+    public function technologies(){
+        return $this->belongsToMany(Technology::class);
+    }
+
     public static function generateSlug($string){
 
         $slug = Str::slug($string, '-');
