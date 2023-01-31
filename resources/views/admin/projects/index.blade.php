@@ -22,6 +22,7 @@
           <tr>
             <th scope="col"><a href="{{ route('admin.projects.orderby', ['id', 'direction'])}}">ID</a></th>
             <th scope="col"><a href="{{ route('admin.projects.orderby', ['name','direction'])}}">Nome</a></th>
+            <th scope="col">Tag</th>
             <th scope="col"><a href="{{ route('admin.projects.orderby', ['client_name', 'direction'])}}">Nome cliente</a></th>
             {{-- <th scope="col">Riasssunto</th> --}}
             <th scope="col">AZIONI</th>
@@ -33,6 +34,18 @@
             <tr>
                 <th  scope="row">{{$project->id}}</th>
                 <td>{{$project->name}} <span class="badge text-bg-info">{{$project->typology->name}}</span></td>
+                <td>
+                    <p>
+                        @forelse ($project->technologies as $tech)
+
+                            <span class="badge rounded-pill text-bg-success">{{$tech->name}}</span>
+
+                        @empty
+                            <span class="badge rounded-pill text-bg-danger">no data</span>
+                        @endforelse
+                    </p>
+
+                </td>
                 <td>{{$project->client_name}}</td>
                 {{-- <td>{{$project->summary}}</td> --}}
                 <td class="d-flex">

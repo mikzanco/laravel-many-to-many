@@ -19,6 +19,17 @@
     <h4>Tipologia: {{$projects->typology->name}}</h4>
 
 
+    @if($projects->technologies)
+    <div>
+        @foreach ($projects->technologies as $tech)
+            <span class="badge rounded-pill text-bg-success">{{$tech->name}}</span>
+        @endforeach
+    </div>
+
+
+    @endif
+
+
     @if($projects->cover_image)
         <div>
             <img width="500" src="{{asset('storage/' . $projects->cover_image)}}" alt="{{$projects->cover_image_original}}">
